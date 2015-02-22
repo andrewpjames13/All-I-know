@@ -10,6 +10,8 @@
     <% @topics.each do |topic| %>
       <tr>
         <td> <%= link_to topic.name, topic_path(topic) %></td>
+        <td> <%= link_to 'Edit', edit_topic_path(topic) %></td>
+
       </tr>
     <% end %>
   </tbody>
