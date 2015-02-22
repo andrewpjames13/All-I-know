@@ -19,6 +19,7 @@ class TopicsController < ApplicationController
 
   def show
     @topic = Topic.find(params[:id])
+    @categories = @topic.categories
   end
 
   def edit

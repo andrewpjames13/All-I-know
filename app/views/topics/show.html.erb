@@ -1,3 +1,24 @@
 <h1> <%= @topic.name %></h1>
 <p><%= link_to 'Edit', edit_topic_path(@topic) %></p>
 <p><%= link_to 'Delete', @topic, method: :delete %></p>
+
+<p>
+  <%= link_to "Create a new Category", new_topic_category_path(@topic, @category) %>
+</p>
+<p>
+  <table>
+    <thead>
+      <th>Categories</th>
+    </thead>
+
+    <tbody>
+      <% @topic.categories.each do |category| %>
+      <tr>
+        <td> <%= link_to category.name, topic_category_path(@topic, category) %></td>
+        <td> <%= link_to "Edit", edit_topic_category_path(@topic, category) %></td>
+        <td> <%= link_to "Delete", topic_category_path(@topic, category), method: :delete %></td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
+</p>
