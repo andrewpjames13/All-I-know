@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   resources :topics do
-    resources :categories
+    resources :categories do
+      resources :notes
+    end
   end
 
   root 'topics#index'

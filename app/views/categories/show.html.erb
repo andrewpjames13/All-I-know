@@ -2,3 +2,26 @@
 
 <%= link_to "Edit", edit_topic_category_path(@topic, @category) %>
 <%= link_to "Delete", topic_category_path(@topic, @category) %>
+
+<h1>Notes</h1>
+<%= link_to "Create New Note", new_topic_category_note_path(@topic, @category, @note) %>
+<p>
+  <table>
+    <thead>
+      <tr>
+        <td>Name</td>
+        <td>Descripiton</td>
+      </tr>
+    </thead>
+    <tbody>
+      <% @category.notes.each do |note| %>
+      <tr>
+        <td> <%= link_to note.name, topic_category_note_path(@topic, @category, note) %></td>
+        <td> <%= note.description %></td>
+        <td> <%= link_to "Edit", edit_topic_category_note_path(@topic, @category, note) %></td>
+        <td> <%= link_to "Delete", topic_category_note_path(@topic, @category, note) %></td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
+</p>
