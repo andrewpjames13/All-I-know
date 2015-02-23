@@ -1,5 +1,7 @@
 class TopicsController < ApplicationController
 
+  before_action :authenticate, except: [:index, :show]
+
   def index
     @topics = Topic.all
   end

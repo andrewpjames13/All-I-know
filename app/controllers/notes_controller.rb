@@ -1,5 +1,7 @@
 class NotesController < ApplicationController
 
+  before_action :authenticate, except: [:index, :show]
+
   def new
     @note = Note.new
     @category = Category.find(params[:category_id])

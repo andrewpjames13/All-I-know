@@ -1,5 +1,7 @@
 class CategoriesController < ApplicationController
 
+  before_action :authenticate, except: [:index, :show]
+
   def new
     @category = Category.new
     @topic = Topic.find(params[:topic_id])
